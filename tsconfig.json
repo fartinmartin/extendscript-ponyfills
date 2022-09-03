@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "strict": true,
+    "types": ["AfterEffects/2018"],
+    "typeRoots": ["./node_modules/types-for-adobe/"],
+    /*
+     * previously: "target": "es3"
+     * target is handled by spack config(s)
+     */
+    /*
+     * previously: "lib": ["es5"]
+     * including "es5" lib (or similar) will clash with types-for-adobe types
+     * when creating *.d.ts files (and docs) for your library!
+     *
+     * TODO: find lib that does not clash with types-for-adobe types, but
+     * does include Typescript utility functions (e.g. Prameters<>)
+     * https://www.typescriptlang.org/docs/handbook/utility-types.html#parameterstype
+     */
+    "noLib": true
+  }
+}
