@@ -48,9 +48,9 @@ test(() => flat([[1, 2, 3], [4, 5, 6]])) // prettier-ignore
 	.expect([1, 2, 3, 4, 5, 6])
 	.run();
 
-test(() => flatMap([1, 2, 3], (value: number) => [value, 2, 3]))
-	.describe("flatMap: not sure actually")
-	.expect([1, 2, 3])
+test(() => flatMap<any>([1, 2, [3], [4, 5], 6, []], (num) => num))
+	.describe("flatMap: map and then flat")
+	.expect([1, 2, 3, 4, 5, 6])
 	.run();
 
 test(() => forEach([1, 2, 3], (item, index, arr) => (arr[index] = arr[index] * 2))) // prettier-ignore
@@ -68,32 +68,32 @@ test(() => arrayIncludes([1, 2, 3], 2))
 	.expect(true)
 	.run();
 
-// test(() => indexOf([1, 2, 3], (item) => item))
-// 	.describe()
-// 	.expect()
-// 	.run();
+test(() => indexOf([1, 2, 3], 2))
+	.describe("found index of item `2`")
+	.expect(1)
+	.run();
 
-// test(() => isArray([1, 2, 3], (item) => item))
-// 	.describe()
-// 	.expect()
-// 	.run();
+test(() => isArray([1, 2, 3]))
+	.describe("test if `[1, 2, 3]` is an array")
+	.expect(true)
+	.run();
 
-// test(() => lastIndexOf([1, 2, 3], (item) => item))
-// 	.describe()
-// 	.expect()
-// 	.run();
+test(() => lastIndexOf([1, 2, 3, 1], 1))
+	.describe("find the index of the last instance of `1`")
+	.expect(3)
+	.run();
 
-// test(() => map([1, 2, 3], (item) => item))
-// 	.describe()
-// 	.expect()
-// 	.run();
+test(() => map([1, 2, 3], (item) => item * 2))
+	.describe("map over array, duplicating item values")
+	.expect([2, 4, 6])
+	.run();
 
-// test(() => reduce([1, 2, 3], (item) => item))
-// 	.describe()
-// 	.expect()
-// 	.run();
+test(() => reduce<number, number>([1, 2, 3], (prev, current) => prev + current, 0)) // prettier-ignore
+	.describe("sum array with reduce")
+	.expect(6)
+	.run();
 
-// test(() => some([1, 2, 3], (item) => item))
-// 	.describe()
-// 	.expect()
-// 	.run();
+test(() => some([1, 2, 3], (item) => typeof item === "string"))
+	.describe("find string in array of numbers")
+	.expect(false)
+	.run();

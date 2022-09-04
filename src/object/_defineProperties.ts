@@ -1,4 +1,4 @@
-import { defineProperty } from "./defineProperty";
+import { defineProperty } from "./_defineProperty";
 
 export function defineProperties(object: any, descriptors: any[]) {
 	let property;
