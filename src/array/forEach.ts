@@ -6,4 +6,5 @@ export function forEach<T>(array: T[], callback: ForEachCallback<T>) {
 
 		callback(value, index, array);
 	}
+	return array;
 }
