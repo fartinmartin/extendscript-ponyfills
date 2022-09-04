@@ -8,7 +8,7 @@ export { findIndex } from "./findIndex";
 // export { flatMap } from "./_flatMap";
 export { forEach } from "./forEach";
 // export { groupBy } from "./_groupBy";
-export { includes } from "./includes";
+export { includes as arrayIncludes } from "./includes";
 export { indexOf } from "./indexOf";
 export { isArray } from "./isArray";
 export { lastIndexOf } from "./lastIndexOf";
