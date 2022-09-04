@@ -3,6 +3,7 @@ import { stringIncludes } from "../string/_index";
 
 // prettier-ignore
 // type Parameters<T extends (...args: any[]) => any> = T extends (...args: infer P) => any ? P : never;
+// type Extract<T, U> = T extends U ? T : never; // ⚠️ doesn't help this typedoc error: error TS2318: Cannot find global type 'Extract'.
 
 export function includes<T>(array: T[], searchedValue: T): boolean;
 export function includes(

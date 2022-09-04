@@ -6,7 +6,7 @@
 	"jsx": "dist/script.jsx",
 	"types": "dist/types",
 	"scripts": {
-		"build": "npm run spack && npm run types && npm run docs",
+		"build": "npm run spack && npm run types && npm run readme && npm run docs",
 		"dev": "npx chokidar-cli '**/*.ts' -c 'npm run spack'",
 		"spack": "npm run es && npm run jsx && npm run jsx-remove-export-lines",
 		"es": "spack --config $PWD/spack.config.es.js",
@@ -16,7 +16,8 @@
 		"types": "rm -rf dist/types/* && npx -p typescript tsc --declaration --emitDeclarationOnly --declarationDir dist/types",
 		"docs": "npx typedoc src/index.ts",
 		"rename": "node .vscode/rename.js",
-		"test": "jest --watch -c=src/__tests__/jest.config.ts"
+		"test": "jest --watch -c=src/__tests__/jest.config.ts",
+		"readme": "node .vscode/readme.js"
 	},
 	"author": "Martin Lindberg",
 	"license": "MIT",
