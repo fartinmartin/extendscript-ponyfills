@@ -51,6 +51,7 @@ async function readFs(source, toggle) {
 }
 
 function getHTML(headers, data) {
+	// TODO: hmm, should probably size based on the *shortest* list, then forEach of the longer lists, if they exceed shortest + [arbitrary number, let's say 5] they should span two columns
 	// sort longest into 2 columns of a-z
 	const col1 = data[0].slice(0, data[0].length / 2);
 	const col2 = data[0].slice(data[0].length / 2, data[0].length);

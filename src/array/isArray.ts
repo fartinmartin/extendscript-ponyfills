@@ -1,5 +1,6 @@
-export function isArray<T>(array: T[] | any) {
+export function isArray(subject: any) {
 	return Boolean(
-		array && Object.prototype.toString.call(Object(array)) === "[object Array]"
+		subject &&
+			Object.prototype.toString.call(Object(subject)) === "[object Array]"
 	);
 }
