@@ -6,12 +6,13 @@
 	"types": "dist/types",
 	"scripts": {
 		"build": "spack && npm run types && npm run docs && npm run readme",
-		"dev": "npx chokidar-cli '**/*.ts' -c 'npm run spack'",
+		"dev": "npx chokidar-cli '**/*.ts' -c 'spack'",
 		"release": "npm run build && gh release create $npm_package_version $npm_package_main",
 		"types": "rm -rf dist/types/* && npx -p typescript tsc --declaration --emitDeclarationOnly --declarationDir dist/types",
 		"docs": "npx typedoc src/index.ts",
-		"rename": "node .vscode/rename.js",
-		"readme": "node .vscode/readme.js"
+		"rename": "node scripts/rename.js",
+		"readme": "node scripts/readme.js",
+		"test": "spack --config $PWD/test/spack.config.js && node scripts/runner/index.js"
 	},
 	"author": "Martin Lindberg",
 	"license": "MIT",

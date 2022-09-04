@@ -3,7 +3,7 @@ const { config } = require("@swc/core/spack");
 
 module.exports = config({
 	entry: {
-		script: __dirname + "/src/index.ts",
+		script: __dirname + "/src/_index.ts",
 	},
 	output: {
 		path: __dirname + "/dist",
