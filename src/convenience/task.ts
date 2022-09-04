@@ -27,19 +27,16 @@ function task(
 ) {
 	if (!delay) delay = 0;
 	if (!repeat) repeat = false;
-	const id = guid();
 
-	const GLOBAL = $ as MyGlobal;
+	const id = guid();
 	const taskGroup = `_${type}s`;
 
 	// @ts-ignore
-	if (!GLOBAL[taskGroup]) GLOBAL[taskGroup] = {};
+	if (!$[taskGroup]) $[taskGroup] = {};
 	// @ts-ignore
-	GLOBAL[taskGroup][id] = callback;
+	$[taskGroup][id] = callback;
 
-	GLOBAL.writeln(id);
-
-	return app.scheduleTask('$._timers["' + id + '"]();', delay, repeat);
+	return app.scheduleTask(`(${callback.toString()})();`, delay, repeat);
 }
 
 function guid() {
