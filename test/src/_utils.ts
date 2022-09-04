@@ -1,9 +1,13 @@
-export function test(callback: Function, expectedValue) {
+export function test(
+	description: string,
+	callback: Function,
+	expectedValue: any
+) {
 	const result = callback();
 	const status = result === expectedValue;
 	alert(
-		`🪵 log:\n result: ${result.toString()}\nexpect: ${expectedValue.toString()}\nstatus:${
-			status ? "✅" : "⛔"
-		}`
+		`${
+			status ? "🪵" : "🔥"
+		} ${description}\n result: ${result.toString()}\n\nexpected: ${expectedValue.toString()}`
 	);
 }

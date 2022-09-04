@@ -11,17 +11,17 @@ const hostApps = require("./lib/hostApps.js");
 function buildCommand(hostApp, scriptFile) {
 	try {
 		getShellCommand(hostApp, scriptFile, function (command) {
-			console.log("Running shell command:", command);
+			// console.log("Running shell command:", command);
 			cp.exec(command, (error, stdout, stderr) => {
 				if (error) {
 					console.error(`exec error: ${error}`);
 					return;
 				}
 
-				console.log(stdout);
-				console.log(stderr);
+				// console.log(stdout);
+				// console.log(stderr);
 			});
-			console.log(`Script sent to ${hostApp.appName}`);
+			console.log(`\n📤 Script sent to ${hostApp.appName}\n`);
 		});
 	} catch (error) {
 		if (typeof error !== "undefined") {

@@ -18,4 +18,14 @@ import {
 } from "../../src";
 import { test } from "./_utils";
 
-test(() => every([1, 2, 3], (number) => typeof number === "string"), false);
+test(
+	"every item is number",
+	() => every([1, 2, 3], (number) => typeof number === "string"),
+	false
+);
+
+test(
+	"every item is number",
+	() => every([1, 2, 3], (number) => typeof number === "string"),
+	true
+);
