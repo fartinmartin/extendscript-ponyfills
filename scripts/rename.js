@@ -1,12 +1,11 @@
 const fs = require("fs").promises;
 const path = require("path");
-
 const child_process = require("child_process");
 const pkg = require("../package.json");
 
 const files = [
 	path.join(process.cwd(), "package.json"),
-	// path.join(process.cwd(), "package-lock.json"),
+	path.join(process.cwd(), "package-lock.json"),
 	path.join(process.cwd(), "README.md"),
 ];
 
@@ -19,27 +18,20 @@ async function run() {
 	const oldAuthor = pkg.author;
 	const newAuthor = (await execute("git config --global user.name")).trim();
 
-	Promise.all(
+	await Promise.all(
 		files.map(async (file) => {
 			await findAndReplace(file, oldName, newName);
 			await findAndReplace(file, oldAuthor, newAuthor);
 		})
-	)
-		.then(() => {
-			console.log(
-				`\n🎉 done! replaced "${oldName}" with "${newName}" and "${oldAuthor}" with "${newAuthor}" in: \n${files
-					.map((file) => "👉 " + path.basename(file))
-					.join("\n")}`
-			);
-			console.log(`\n————————————————\n`);
-			console.log(
-				`❕ you may also want to edit the description in your package.json`
-			);
-			console.log(
-				`❕ feel free to remove the "npm run rename" script and .vscode/rename.js file, if ya like\n`
-			);
-		})
-		.catch((error) => console.error(error));
+	);
+
+	console.log(
+		`\n🎉 done! replaced "${oldName}" with "${newName}" and "${oldAuthor}" with "${newAuthor}" in: \n` +
+			`${files.map((file) => "👉 " + path.basename(file)).join("\n")}` +
+			`\n————————————————\n` +
+			`❕ you may also want to edit the description in your package.json` +
+			`❕ feel free to remove the "npm run rename" script and .vscode/rename.js file, if ya like\n`
+	);
 }
 
 async function findAndReplace(file, find, replace) {

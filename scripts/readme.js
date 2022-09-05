@@ -1,12 +1,7 @@
 const fs = require("fs").promises;
 const path = require("path");
-const child_process = require("child_process");
 
-try {
-	run();
-} catch (error) {
-	console.log(error);
-}
+run();
 
 async function run() {
 	const src = path.join(process.cwd(), "src");
@@ -78,13 +73,8 @@ function getHTML(headers, data) {
 	});
 
 	const html =
-		"<table>" +
-		`<thead>${tr(
-			headers.map((x) => ({ name: x })),
-			true
-		)}</thead>` +
-		`<tbody>${rows.map((row) => tr(row)).join("")}</tbody>` +
-		"</table>";
+		`<table><thead>${tr(headers.map((x) => ({ name: x })), true)}</thead>` + // prettier-ignore
+		`<tbody>${rows.map((row) => tr(row)).join("")}</tbody></table>` // prettier-ignore
 
 	return html;
 
@@ -106,16 +96,4 @@ async function findAndReplace(file, find, replace) {
 	const findRegExp = new RegExp(find, "g");
 	const result = data.replace(findRegExp, replace);
 	await fs.writeFile(file, result, "utf8");
-}
-
-async function execute(command) {
-	return new Promise((resolve, reject) =>
-		child_process.exec(command, (error, standardOutput, standardError) =>
-			error
-				? reject()
-				: standardError
-				? reject(standardError)
-				: resolve(standardOutput)
-		)
-	);
 }

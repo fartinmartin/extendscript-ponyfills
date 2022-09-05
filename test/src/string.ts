@@ -20,14 +20,14 @@ test(() => includes("Hello world!", "e"))
 	.expect(true)
 	.run();
 
-test(() => padEnd("4", 2)) // ⛔
-	.describe("pad end '4' with '00'")
-	.expect("400")
+test(() => padEnd("4", 2, "0"))
+	.describe("pad end '4' til length of 2")
+	.expect("40")
 	.run();
 
-test(() => padStart("4", 2)) // ⛔
-	.describe("pad start '4' with '00'")
-	.expect("004")
+test(() => padStart("4", 2, "0"))
+	.describe("pad start '4' til length of 2")
+	.expect("04")
 	.run();
 
 test(() => repeat("Hello world!", 2))
