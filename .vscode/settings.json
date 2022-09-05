@@ -1,0 +1,16 @@
+{
+	"files.exclude": {
+		".vscode": true,
+		"LICENSE": true,
+		".gitignore": true,
+		"package-lock.json": true,
+		".prettierrc.js": true,
+		"dist": true,
+		"test/dist": true,
+		"test/ae": true,
+		"test/spack.config.js": true,
+		"spack.config.js": true,
+		"tsconfig.json": true,
+		"node_modules": true
+	}
+}
