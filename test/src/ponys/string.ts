@@ -6,9 +6,9 @@ import {
 	repeat,
 	startsWith,
 	trim,
-} from "../../src";
+} from "../../../src";
 
-import { test } from "./_utils";
+import { test } from "../_utils";
 
 test(() => endsWith("Hello world!", "1"))
 	.describe("'Hello world!' ends with '1'")

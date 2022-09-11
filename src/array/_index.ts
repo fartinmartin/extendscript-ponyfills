@@ -1,4 +1,5 @@
 // https://github.com/maciejcieslar/array-methods
+// export { arrayFrom } from "./_arrayFrom";
 export { every } from "./every";
 export { fill } from "./fill";
 export { filter } from "./filter";

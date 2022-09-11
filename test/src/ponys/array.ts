@@ -15,8 +15,8 @@ import {
 	map,
 	reduce,
 	some,
-} from "../../src";
-import { test } from "./_utils";
+} from "../../../src";
+import { test } from "../_utils";
 
 test(() => every([1, 2, 3], (num) => typeof num === "string"))
 	.describe("every item is number")
@@ -76,6 +76,11 @@ test(() => indexOf([1, 2, 3], 2))
 test(() => isArray([1, 2, 3]))
 	.describe("test if `[1, 2, 3]` is an array")
 	.expect(true)
+	.run();
+
+test(() => isArray("i am not an array"))
+	.describe("test if a string is an array")
+	.expect(false)
 	.run();
 
 test(() => lastIndexOf([1, 2, 3, 1], 1))

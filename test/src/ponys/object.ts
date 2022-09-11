@@ -6,7 +6,7 @@ import {
 	getOwnPropertyNames,
 	getPrototypeOf,
 	keys,
-} from "../../src";
+} from "../../../src";
 
 const obj = { name: "test", value: 2 };
 

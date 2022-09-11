@@ -5,12 +5,13 @@
 		".gitignore": true,
 		"package-lock.json": true,
 		".prettierrc.js": true,
-		"dist": true,
-		"test/dist": true,
+		// "dist": true,
+		// // "test/dist": true,
+		"test/dist/*.js.map": true,
 		"test/ae": true,
-		"test/spack.config.js": true,
-		"spack.config.js": true,
-		"tsconfig.json": true,
+		// "test/spack.config.js": true,
+		// "spack.config.js": true,
+		// // "tsconfig.json": true,
 		"node_modules": true
 	}
 }

@@ -1,7 +1,7 @@
-const fs = require("fs").promises;
 const path = require("path");
-const child_process = require("child_process");
 const pkg = require("../package.json");
+const findAndReplace = require("./lib/findAndReplace");
+const execute = require("./lib/execute");
 
 const files = [
 	path.join(process.cwd(), "package.json"),
@@ -31,24 +31,5 @@ async function run() {
 			`\n————————————————\n` +
 			`❕ you may also want to edit the description in your package.json` +
 			`❕ feel free to remove the "npm run rename" script and .vscode/rename.js file, if ya like\n`
-	);
-}
-
-async function findAndReplace(file, find, replace) {
-	const data = await fs.readFile(file, "utf8");
-	const findRegExp = new RegExp(find, "g");
-	const result = data.replace(findRegExp, replace);
-	await fs.writeFile(file, result, "utf8");
-}
-
-async function execute(command) {
-	return new Promise((resolve, reject) =>
-		child_process.exec(command, (error, standardOutput, standardError) =>
-			error
-				? reject()
-				: standardError
-				? reject(standardError)
-				: resolve(standardOutput)
-		)
 	);
 }
