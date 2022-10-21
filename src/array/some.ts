@@ -1,4 +1,4 @@
-type SomeCallback<T> = (value: T, index: number, array: T[]) => boolean;
+export type SomeCallback<T> = (value: T, index: number, array: T[]) => boolean;
 
 export function some<T>(array: T[], callback: SomeCallback<T>) {
 	for (let index = 0; index < array.length; index += 1) {

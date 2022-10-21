@@ -1,4 +1,4 @@
-type MapCallback<T, N> = (value: T, index: number, array: T[]) => N;
+export type MapCallback<T, N> = (value: T, index: number, array: T[]) => N;
 
 export function map<T, N>(array: T[], callback: MapCallback<T, N>): N[] {
 	const result = [];

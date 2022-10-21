@@ -1,4 +1,9 @@
-type ReduceCallback<T, N> = (acc: N, value: T, index: number, array: T[]) => N;
+export type ReduceCallback<T, N> = (
+	acc: N,
+	value: T,
+	index: number,
+	array: T[]
+) => N;
 
 export function reduce<T, N>(
 	array: T[],

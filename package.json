@@ -1,6 +1,6 @@
 {
 	"name": "extendscript-ponyfills",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Modern JavaScript ponyfills for ES6. Intended for use with Extendscript.",
 	"main": "dist/index.js",
 	"types": "dist/types",

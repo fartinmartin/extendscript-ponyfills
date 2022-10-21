@@ -1,4 +1,12 @@
-type FilterCallback<T> = (value: T, index: number, array: T[]) => boolean;
+export type FilterCallback<T> = (
+	value: T,
+	index: number,
+	array: T[]
+) => boolean;
+
+// TODO: accept (optional?) additional type parameter to indicate return value
+// function filter<T, K>(array: T[], callback: FilterCallback<T>): K
+// pseudo example: filter<Item, CompItem>(app.project.items, (item) => item instanceof CompItem)
 
 export function filter<T>(array: T[], callback: FilterCallback<T>) {
 	const result: T[] = [];

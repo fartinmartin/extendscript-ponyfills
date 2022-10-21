@@ -1,4 +1,8 @@
-type FindIndexCallback<T> = (value: T, index: number, array: T[]) => boolean;
+export type FindIndexCallback<T> = (
+	value: T,
+	index: number,
+	array: T[]
+) => boolean;
 
 export function findIndex<T>(array: T[], callback: FindIndexCallback<T>) {
 	for (let index = 0; index < array.length; index += 1) {

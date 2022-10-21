@@ -1,6 +1,6 @@
 import { findIndex } from "./findIndex";
 
-type FindCallback<T> = (value: T, index: number, array: T[]) => boolean;
+export type FindCallback<T> = (value: T, index: number, array: T[]) => boolean;
 
 export function find<T>(array: T[], callback: FindCallback<T>) {
 	const index = findIndex(array, callback);
