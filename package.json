@@ -1,30 +1,25 @@
 {
 	"name": "extendscript-ponyfills",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Modern JavaScript ponyfills for ES6. Intended for use with Extendscript.",
 	"main": "dist/index.js",
-	"types": "dist/types",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"spack": "spack",
-		"build": "spack && npm run types && npm run readme",
-		"dev": "npx chokidar-cli '**/*.ts' -c 'spack'",
-		"release": "npm run build && gh release create $npm_package_version $npm_package_main",
-		"types": "node scripts/types.js",
-		"docs": "npx typedoc src/index.ts",
-		"test": "spack --config $PWD/test/spack.config.js && node scripts/runner.js",
-		"rename": "node scripts/rename.js",
+		"build": "rollup -c",
+		"dev": "rollup -cw",
+		"release": "npm run build && gh release create $npm_package_version ./dist/_jsx/$npm_package_name-v$npm_package_version.jsx",
 		"readme": "node scripts/readme.js"
 	},
 	"author": "Martin Lindberg",
 	"license": "MIT",
 	"devDependencies": {
-		"@swc/cli": "^0.1.57",
-		"@swc/core": "^1.2.246",
-		"chokidar": "^3.5.2",
-		"chokidar-cli": "^3.0.0",
-		"tslib": "^2.3.1",
-		"typedoc": "^0.23.13",
-		"types-for-adobe": "^6.0.1",
-		"typescript": "^4.8.2"
+		"@rollup/plugin-node-resolve": "^15.0.1",
+		"@rollup/plugin-typescript": "^9.0.2",
+		"estree-walker": "^2.0.2",
+		"magic-string": "^0.26.7",
+		"rollup": "^3.3.0",
+		"tslib": "^2.4.1",
+		"types-for-adobe": "^7.0.7",
+		"typescript": "^4.9.3"
 	}
 }

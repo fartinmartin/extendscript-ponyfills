@@ -1,4 +1,8 @@
-export function includes(string: string, searchString: string, start?: number) {
+export function stringIncludes(
+	string: string,
+	searchString: string,
+	start?: number
+) {
 	if (typeof start !== "number") {
 		start = 0;
 	}
