@@ -13,3 +13,9 @@ Oh, also a single `function` pony:
 ```js
 Function.prototype.bind() ✅
 ```
+
+## Usage
+
+`npm i extendscript-ponyfills` or download from [Releases](https://github.com/fartinmartin/extendscript-ponyfills/releases) and `// #include` or `// @include` in your `.jsx` script.
+
+> TODO: update this
