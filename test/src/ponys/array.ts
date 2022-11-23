@@ -15,8 +15,9 @@ import {
 	map,
 	reduce,
 	some,
+	arrayFrom,
 } from "../../../src";
-import { arrayFrom } from "../../../src/array/arrayFrom";
+
 import { test } from "../_utils";
 
 const comp = app.project.activeItem as CompItem;
@@ -38,7 +39,7 @@ const comp = app.project.activeItem as CompItem;
 
 test(() => arrayFrom(comp.layers, (x) => x.name))
 	.describe("arrayFrom AE collection")
-	.expect(["Shape Layer 1", "Shape Layer 2"])
+	.expect(["Shape Layer 1", "Light Gray Solid 1"])
 	.run();
 
 // test(() => every([1, 2, 3], (num) => typeof num === "string"))

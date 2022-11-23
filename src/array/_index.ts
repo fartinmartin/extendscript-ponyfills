@@ -16,3 +16,4 @@ export { lastIndexOf } from "./lastIndexOf";
 export { map, MapCallback } from "./map";
 export { reduce, ReduceCallback } from "./reduce";
 export { some, SomeCallback } from "./some";
+export { arrayFrom } from "./arrayFrom";
