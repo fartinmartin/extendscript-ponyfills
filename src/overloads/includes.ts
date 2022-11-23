@@ -11,7 +11,7 @@ export function includes(
 	searchString: string,
 	start?: number
 ): boolean;
-export function includes(a: unknown, b: unknown, c?: unknown) {
+export function includes<T>(a: T[] | string, b: T, c?: number) {
 	if (
 		typeof a === "string" &&
 		typeof b === "string" &&
