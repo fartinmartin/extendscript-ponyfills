@@ -6,7 +6,9 @@ ExtendScript is stuck in ES3, but we like our simple ES6 methods. A common solut
 
 ## Usage
 
-`npm i extendscript-ponyfills`
+```
+npm i extendscript-ponyfills
+```
 
 Or, download the [latest release](https://github.com/fartinmartin/extendscript-ponyfills/releases) to [`#include`](https://extendscript.docsforadobe.dev/extendscript-tools-features/preprocessor-directives.html) in your `.jsx` script. By default the ponyfills are namespaced to `PONIES`—you can change this name on the first line of the .jsx, or remove the IIFE entirely to elevate the methods to the global scope.
 
