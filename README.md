@@ -1,21 +1,60 @@
 # extendscript-ponyfills
 
-> https://github.com/Klustre/extender#why
+## Why
 
-## Ponys
-
-<table><thead><tr><th colspan="2">array</th><th>object</th><th>string</th></tr></thead><tbody><tr><td>✅ <code>arrayFrom</code></td><td>✅ <code>forEach</code></td><td>🚧 <code>create</code></td><td>✅ <code>endsWith</code></td></tr><tr><td>✅ <code>every</code></td><td>✅ <code>groupBy</code></td><td>🚧 <code>defineProperties</code></td><td>✅ <code>includes</code></td></tr><tr><td>✅ <code>fill</code></td><td>✅ <code>includes</code></td><td>🚧 <code>defineProperty</code></td><td>✅ <code>padEnd</code></td></tr><tr><td>✅ <code>filter</code></td><td>✅ <code>indexOf</code></td><td>🚧 <code>getOwnPropertyDescriptor</code></td><td>✅ <code>padStart</code></td></tr><tr><td>✅ <code>find</code></td><td>✅ <code>isArray</code></td><td>🚧 <code>getPrototypeOf</code></td><td>✅ <code>repeat</code></td></tr><tr><td>✅ <code>findIndex</code></td><td>✅ <code>lastIndexOf</code></td><td>✅ <code>getOwnPropertyNames</code></td><td>✅ <code>startsWith</code></td></tr><tr><td>✅ <code>flat</code></td><td>✅ <code>map</code></td><td>✅ <code>keys</code></td><td>✅ <code>trim</code></td></tr><tr><td>✅ <code>flatMap</code></td><td>✅ <code>reduce</code></td><td></td><td></td></tr></tbody></table>
-
-💡 `arrayFrom` works with After Effects [Collection objects](https://ae-scripting.docsforadobe.dev/other/collection.html#collection) whose index starts with 1, not 0.
-
-Oh, also a single `function` pony:
-
-```js
-Function.prototype.bind() ✅
-```
+ExtendScript is stuck in ES3, but we like our simple ES6 methods. A common solution is to polyfill these methods, but I'll let [sindresorhus](https://github.com/sindresorhus/ponyfill#how-are-ponyfills-better-than-polyfills) and [hyperbrew](https://hyperbrew.co/blog/top-2-extendscript-mistakes-and-how-to-avoid-them/) explain why that's not a good idea, especially so in Adobe-land.
 
 ## Usage
 
-`npm i extendscript-ponyfills` or download from [Releases](https://github.com/fartinmartin/extendscript-ponyfills/releases) and `// #include` or `// @include` in your `.jsx` script.
+`npm i extendscript-ponyfills`
 
-> TODO: update this
+Or, download the [latest release](https://github.com/fartinmartin/extendscript-ponyfills/releases) to [`#include`](https://extendscript.docsforadobe.dev/extendscript-tools-features/preprocessor-directives.html) in your `.jsx` script. By default the ponyfills are namespaced to `PONIES`—you can change this name on the first line of the .jsx, or remove the IIFE entirely to elevate the methods to the global scope.
+
+## Ponyfills
+
+### Array
+
+- `arrayFrom`
+- `difference`
+- `differenceWith`
+- `every`
+- `fill`
+- `filter`
+- `find`
+- `findIndex`
+- `flat`
+- `flatMap`
+- `forEach`
+- `groupBy`
+- `includes`
+- `indexOf`
+- `intersection`
+- `intersectionWith`
+- `isArray`
+- `lastIndexOf`
+- `map`
+- `reduce`
+- `some`
+
+### String
+
+- `padEnd`
+- `endsWith`
+- `includes`
+- `padStart`
+- `repeat`
+- `startsWith`
+- `trim`
+
+### Object
+
+- `assign`
+- `entries`
+
+### Function
+
+- `bind`
+
+## Similar Projects
+
+- klustre's [`extender`](https://github.com/Klustre/extender)

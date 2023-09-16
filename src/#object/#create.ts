@@ -1,4 +1,4 @@
-import { defineProperties } from "./_defineProperties";
+import { defineProperties } from "./#defineProperties";
 
 export const create = (function () {
 	const Temp = function () {};

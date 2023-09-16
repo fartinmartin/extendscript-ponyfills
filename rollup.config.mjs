@@ -1,28 +1,33 @@
 import nodeResolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
-import removeExports from "./rollup-plugin-remove-exports.js";
 import pkg from "./package.json" assert { type: "json" };
 
-export default [
-	{
-		input: "src/index.ts",
-		external: pkg.dependencies ? Object.keys(pkg.dependencies) : null,
-		output: {
-			file: pkg.main,
-			format: "es",
-		},
-		plugins: [typescript({ declaration: true, declarationDir: "/dist" })],
+const jsxName = `${pkg.name}-v${pkg.version}.jsx`;
+
+const typescriptBuild = {
+	input: "src/index.ts",
+	external: pkg.dependencies ? Object.keys(pkg.dependencies) : null,
+	output: {
+		file: pkg.main,
+		format: "es",
+		strict: false,
 	},
-	{
-		input: "src/index.ts",
-		output: {
-			file: `dist/_jsx/${pkg.name}-v${pkg.version}.jsx`,
-			format: "cjs",
-		},
-		plugins: [
-			nodeResolve(),
-			typescript({ declaration: false }),
-			removeExports(),
-		],
+	plugins: [typescript({ declaration: true, declarationDir: "dist/types" })],
+};
+
+const extendscriptBuild = {
+	input: "src/index.ts",
+	output: {
+		file: `dist/extendscript/${jsxName}`,
+		format: "cjs",
+		strict: false,
+		format: "iife",
+		name: "PONIES",
 	},
-];
+	plugins: [
+		nodeResolve(),
+		typescript({ declaration: false, removeComments: true }),
+	],
+};
+
+export default [typescriptBuild, extendscriptBuild];
