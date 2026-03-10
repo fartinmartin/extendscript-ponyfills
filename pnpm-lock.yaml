@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      build-utils:
+        specifier: file:../build-utils
+        version: file:../build-utils(typescript@5.4.5)
       tsdown:
         specifier: ^0.20.3
         version: 0.20.3(typescript@5.4.5)
@@ -273,6 +276,11 @@ packages:
 
   birpc@4.0.0:
     resolution: {integrity: sha512-LShSxJP0KTmd101b6DRyGBj57LZxSDYWKitQNW/mi8GRMvZb078Uf9+pveax1DrVL89vm7mWe+TovdI/UDOuPw==}
+
+  build-utils@file:../build-utils:
+    resolution: {directory: ../build-utils, type: directory}
+    peerDependencies:
+      typescript: ^5.0.0
 
   cac@6.7.14:
     resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
@@ -608,6 +616,10 @@ snapshots:
       pathe: 2.0.3
 
   birpc@4.0.0: {}
+
+  build-utils@file:../build-utils(typescript@5.4.5):
+    dependencies:
+      typescript: 5.4.5
 
   cac@6.7.14: {}
 

@@ -12,6 +12,7 @@
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"moduleResolution": "bundler",
+		"lib": ["ES2015"],
 	},
 	"include": ["src/**/*"],
 }
