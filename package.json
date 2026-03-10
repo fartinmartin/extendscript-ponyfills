@@ -1,0 +1,43 @@
+{
+  "name": "extendscript-ponyfills",
+  "version": "1.0.0",
+  "description": "Modern JavaScript ponyfills for ExtendScript",
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./global": {
+      "types": "./dist/global.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "global": [
+        "./dist/global.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch"
+  },
+  "keywords": [
+    "extendscript",
+    "ponyfill",
+    "es5",
+    "es6",
+    "adobe",
+    "typescript"
+  ],
+  "devDependencies": {
+    "tsdown": "^0.20.3",
+    "typescript": "5.4.5"
+  }
+}

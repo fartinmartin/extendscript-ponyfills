@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"target": "ES3",
+		"ignoreDeprecations": "5.0",
+		"module": "ESNext",
+		"declaration": true,
+		"declarationMap": true,
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "bundler",
+	},
+	"include": ["src/**/*"],
+}

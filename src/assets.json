@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "src": "./global.d.ts",
+      "dest": "global.d.ts"
+    }
+  ]
+}
